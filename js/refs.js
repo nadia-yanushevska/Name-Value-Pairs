@@ -4,10 +4,14 @@ export const section = document.querySelector('[data-js-section]');
 // Form elements
 export const formElem = section.querySelector('[data-js-form]');
 export const inputElem = formElem.querySelector('[data-js-input]');
-export const errorElem = formElem.querySelector('[data-js-error]');
 
-// Output element
+// Output elements
 export const outputElem = section.querySelector('[data-js-output]');
+export const copyLink = document.querySelector('[data-js-test]');
+
+// Message elements
+export const errorElem = formElem.querySelector('[data-js-error]');
+export const infoElem = section.querySelector('[data-js-info]');
 
 // Checkbox
 export const checkboxElem = section.querySelector('[data-js-checkbox]');

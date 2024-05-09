@@ -63,6 +63,7 @@ body {
 
 .output {
     width: fit-content;
+    position: relative;
 
     display: flex;
     flex-direction: column;
@@ -109,19 +110,30 @@ body {
 .invalid {
     border-color: maroon;
 }
-
-.error {
+/* Message style */
+.message {
     position: absolute;
-    left: 16px;
-    bottom: -18px;
+    transform: translateY(calc(100% + 4px));
 
     font-size: 0.9rem;
     color: transparent;
-
     transition: color 0.25s ease-in;
-
+    cursor: default;
+}
+.error {
+    left: 16px;
+    bottom: 0;
     &.shown {
         color: maroon;
+    }
+}
+/* Info message style */
+.info {
+    bottom: 0;
+    right: 0;
+
+    &.shown {
+        color: darkgreen;
     }
 }
 
@@ -129,6 +141,24 @@ body {
     resize: none;
     overflow: auto;
     scrollbar-width: thin;
+}
+
+/* Icon style */
+.icon-link {
+    position: absolute;
+    bottom: 8px;
+    right: 16px;
+
+    & .icon {
+        fill: var(--text);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &:hover .icon {
+        fill: var(--dark-blue);
+    }
 }
 
 /* Button style */

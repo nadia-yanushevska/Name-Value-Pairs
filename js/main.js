@@ -1,6 +1,6 @@
-import { deleteBtn, formElem, sortByNameBtn, sortByValueBtn, sortTypes, checkboxElem, inputElem } from './refs.js';
+import { deleteBtn, formElem, sortByNameBtn, sortByValueBtn, sortTypes, checkboxElem, outputElem, copyLink } from './refs.js';
 import { validatePair } from './helpers/validator.js';
-import { hideDarkBtn, hideErrorMessage, showDarkBtn, showErrorMessage } from './helpers/classToggles.js';
+import { hideDarkBtn, hideErrorMessage, hideMessage, showDarkBtn, showErrorMessage, showMessage } from './helpers/classToggles.js';
 import { getSortedPairs, showPairs } from './helpers/pairsHelper.js';
 import { load, save } from './helpers/ls.js';
 
@@ -8,6 +8,7 @@ const PAIRS_KEY = 'pairsData';
 const pairs = load(PAIRS_KEY) || [];
 
 let xmlType = checkboxElem.checked;
+if (xmlType) showDarkBtn();
 
 document.addEventListener('DOMContentLoaded', () => {
     showPairs(pairs, xmlType);
@@ -39,6 +40,17 @@ checkboxElem.addEventListener('change', e => {
         hideDarkBtn();
     }
     showPairs(pairs, xmlType);
+});
+
+copyLink.addEventListener('click', e => {
+    e.preventDefault();
+
+    navigator.clipboard.writeText(outputElem.value).then(() => {
+        showMessage();
+        setTimeout(() => {
+            hideMessage();
+        }, 1500);
+    });
 });
 
 deleteBtn.addEventListener('click', () => {

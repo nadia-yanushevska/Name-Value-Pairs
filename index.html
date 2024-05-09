@@ -30,7 +30,7 @@
             <form class="form" data-js-form>
                 <label class="input-label" for="pairInput">Name/Value Pair </label>
                 <input class="input" type="text" name="pairInput" id="pairsInput" placeholder="name=value" data-js-input autocomplete="off" />
-                <p class="error" data-js-error>Enter a valid pair.</p>
+                <p class="message error" data-js-error>Enter a valid pair.</p>
                 <button class="btn" type="submit">Add</button>
             </form>
             <!-- Output -->
@@ -39,6 +39,12 @@
                     >Name/Value Pair List
                     <textarea class="input textarea" name="pairOutput" id="pairOutput" placeholder="The list is empty" data-js-output rows="10" disabled></textarea>
                 </label>
+                <a class="icon-link" href="" data-js-test>
+                    <svg class="icon" width="28" height="28">
+                        <use href="./img/sprite.svg#icon-copy"></use>
+                    </svg>
+                </a>
+                <p class="message info" data-js-info>Copied</p>
             </div>
             <!-- Controls consists of sort and delete buttons and XML checkbox -->
             <div class="controls">
