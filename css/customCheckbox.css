@@ -5,8 +5,13 @@ input[type='checkbox'] {
     visibility: hidden;
 }
 .checkbox-container {
-    width: 120px;
+    width: 135px;
     padding: 0;
+}
+@media only screen and (min-width: 768px) {
+    .checkbox-container {
+        width: 120px;
+    }
 }
 .checkbox-container .checkbox-label {
     cursor: pointer;

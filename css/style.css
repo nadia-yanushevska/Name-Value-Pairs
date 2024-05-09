@@ -50,8 +50,8 @@ body {
 /* Logo style */
 .logo-icon {
     position: absolute;
-    bottom: 32px;
-    right: 32px;
+    bottom: 20px;
+    right: 20px;
     fill: var(--dark-blue);
 
     display: flex;
