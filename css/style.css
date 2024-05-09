@@ -47,6 +47,18 @@ body {
     gap: 36px 24px;
 }
 
+/* Logo style */
+.logo-icon {
+    position: absolute;
+    bottom: 32px;
+    right: 32px;
+    fill: var(--dark-blue);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 /* Heading style */
 .heading {
     font-family: 'Kode Mono', monospace;
