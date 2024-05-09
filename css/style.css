@@ -1,0 +1,224 @@
+@import url('./common.css');
+@import url('./vars.css');
+@import url('./customCheckbox.css');
+
+/* Scrollbar design */
+body {
+    scrollbar-color: var(--dark-blue) var(--text);
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--dark-blue);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--text);
+    height: 20px;
+}
+
+/* Body and container style */
+body {
+    color: var(--text);
+    font-size: 1.2rem;
+
+    background-color: var(--background);
+    background: var(--gradient);
+    height: 100vh;
+    overflow: hidden;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: 'Sono', monospace;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings: 'MONO' 1;
+}
+
+.container {
+    display: flex;
+    align-items: stretch;
+    gap: 36px 24px;
+}
+
+/* Heading style */
+.heading {
+    font-family: 'Kode Mono', monospace;
+    text-align: center;
+    width: 100%;
+    font-size: 2rem;
+}
+
+/* Form, Output, Container style */
+.form {
+    gap: 8px 24px;
+    position: relative;
+}
+
+.output {
+    width: fit-content;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: baseline;
+    gap: 8px;
+}
+.controls {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 24px;
+}
+.sort-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* Input style */
+.input-label {
+    grid-area: label;
+
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.input {
+    padding: 8px 16px;
+    width: 350px;
+
+    grid-area: input;
+
+    color: var(--text);
+    border: 1px solid var(--dark-blue);
+    border-radius: 5px;
+    background-color: transparent;
+
+    transition: border-color 0.25s ease-in;
+
+    &::placeholder {
+        color: var(--dark-blue);
+    }
+}
+.invalid {
+    border-color: maroon;
+}
+
+.error {
+    position: absolute;
+    left: 16px;
+    bottom: -18px;
+
+    font-size: 0.9rem;
+    color: transparent;
+
+    transition: color 0.25s ease-in;
+
+    &.shown {
+        color: maroon;
+    }
+}
+
+.textarea {
+    resize: none;
+    overflow: auto;
+    scrollbar-width: thin;
+}
+
+/* Button style */
+.btn {
+    padding: 8px 16px;
+    min-width: 100px;
+    max-width: fit-content;
+
+    grid-area: button;
+
+    font-variant: small-caps;
+    font-weight: 500;
+
+    border: none;
+    border-radius: 5px;
+    background-color: var(--dark-blue);
+    color: var(--light-blue);
+
+    transition: background-color 0.25s ease-in, transform 0.1s ease-in;
+
+    &:active {
+        transform: translateY(2px);
+    }
+}
+.darker-btn {
+    background-color: var(--text);
+}
+
+/* Hover Style */
+@media (hover: hover) {
+    .btn:hover,
+    .btn:focus {
+        background-color: var(--text);
+        &.darker-btn {
+            background-color: var(--dark-blue);
+        }
+    }
+}
+
+/* Mobile Style */
+@media only screen and (max-width: 767.98px) {
+    .container {
+        padding: 40px 16px;
+        height: 100vh;
+        width: 100%;
+
+        font-size: 1.4rem;
+        background-color: var(--background);
+        background: var(--gradient);
+
+        flex-direction: column;
+        align-items: center;
+
+        overflow: auto;
+    }
+    .form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+    }
+    .controls,
+    .sort-controls,
+    .input-label {
+        align-items: center;
+    }
+    .input {
+        width: 280px;
+        background-color: var(--light-blue);
+    }
+}
+
+/* Tablet Style */
+@media only screen and (min-width: 768px) {
+    .container {
+        max-width: 650px;
+        padding: 40px;
+        flex-wrap: wrap;
+
+        border-radius: 50px;
+        border: 4px double var(--dark-blue);
+        background-color: var(--light-blue);
+
+        box-shadow: 28px 28px 56px #cdaf95, -28px -28px 56px #fef7ef;
+    }
+    .form {
+        display: grid;
+        grid-template-areas: 'label auto' 'input button';
+    }
+    .controls {
+        margin-top: 30px;
+    }
+}

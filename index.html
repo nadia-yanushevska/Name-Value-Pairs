@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <meta name="keywords" content="Pepperi, Test Task" />
+        <meta name="description" content="Pepperi Test Task is web application to add, sort, delete and get XML of name/value pairs." />
+        <meta name="author" content="Nadiia Yanushevska" />
+
+        <title>Test</title>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Kode+Mono&family=Sono:wght@200..800&display=swap" rel="stylesheet" />
+
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/2.0.0/modern-normalize.min.css"
+            integrity="sha512-4xo8blKMVCiXpTaLzQSLSw3KFOVPWhm/TRtuPVc4WG6kUgjH6J03IBuG7JZPkcWMxJ5huwaBpOpnwYElP/m6wg=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        />
+        <link rel="stylesheet" href="css/style.css" />
+    </head>
+    <body>
+        <section class="container" data-js-section>
+            <h1 class="heading">Test</h1>
+            <!-- Form consisting of input and submit button -->
+            <form class="form" data-js-form>
+                <label class="input-label" for="pairInput">Name/Value Pair </label>
+                <input class="input" type="text" name="pairInput" id="pairsInput" placeholder="name=value" data-js-input autocomplete="off" />
+                <p class="error" data-js-error>Enter a valid pair.</p>
+                <button class="btn" type="submit">Add</button>
+            </form>
+            <!-- Output -->
+            <div class="output">
+                <label class="input-label" for="pairOutput"
+                    >Name/Value Pair List
+                    <textarea class="input textarea" name="pairOutput" id="pairOutput" placeholder="The list is empty" data-js-output rows="10" disabled></textarea>
+                </label>
+            </div>
+            <!-- Controls consists of sort and delete buttons and XML checkbox -->
+            <div class="controls">
+                <div class="sort-controls">
+                    <button class="btn" type="button" data-js-btn="nameSort">Sort by Name</button>
+                    <button class="btn" type="button" data-js-btn="valueSort">Sort by Value</button>
+                </div>
+                <button class="btn" type="button" data-js-btn="delete">Delete</button>
+
+                <div class="checkbox-container">
+                    <input class="checkbox-input" name="showXML" id="xmlCheckbox" type="checkbox" data-js-checkbox="xml" />
+                    <label class="checkbox-label btn" data-label-off="Show XML" data-label-on="Hide XML" for="xmlCheckbox" data-js-btn="xml"></label>
+                </div>
+            </div>
+        </section>
+        <script type="module" src="./js/main.js"></script>
+    </body>
+</html>

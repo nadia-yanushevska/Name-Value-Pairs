@@ -1,0 +1,46 @@
+/* Custom Checkbox style */
+input[type='checkbox'] {
+    cursor: pointer;
+    display: none;
+    visibility: hidden;
+}
+.checkbox-container {
+    width: 120px;
+    padding: 0;
+}
+.checkbox-container .checkbox-label {
+    cursor: pointer;
+    width: 100%;
+}
+
+.checkbox-label::before {
+    display: inline-block;
+    content: attr(data-label-off);
+
+    animation-name: animateIn;
+    animation-duration: 0.25s;
+}
+
+.checkbox-label::after {
+    display: none;
+    content: attr(data-label-on);
+
+    animation-name: animateIn;
+    animation-duration: 0.25s;
+}
+
+.checkbox-container > input[type='checkbox']:checked + .checkbox-label::before {
+    display: none;
+}
+.checkbox-container > input[type='checkbox']:checked + .checkbox-label::after {
+    display: inline-block;
+}
+
+@keyframes animateIn {
+    from {
+        color: transparent;
+    }
+    to {
+        color: currentColor;
+    }
+}

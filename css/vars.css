@@ -1,0 +1,13 @@
+/* Variables style */
+:root {
+    --gradient: linear-gradient(16deg, rgba(205, 175, 149, 1) 10%, rgba(246, 233, 217, 1) 30%, rgba(254, 247, 239, 1) 50%, rgba(250, 233, 213, 1) 70%);
+
+    --background: #f6e9d9;
+    --dark-background: #cdaf95;
+    --light-background: #fef7ef;
+
+    --dark-blue: rgb(104, 126, 167);
+    --light-blue: rgb(214, 220, 232);
+    --blue-white: rgb(238, 240, 244);
+    --text: rgb(32, 45, 71);
+}
