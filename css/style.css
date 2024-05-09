@@ -74,7 +74,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    gap: 24px;
+    gap: 16px;
 }
 .sort-controls {
     display: flex;
@@ -163,6 +163,7 @@ body {
 
 /* Button style */
 .btn {
+    display: block;
     padding: 8px 16px;
     min-width: 100px;
     max-width: fit-content;
@@ -213,12 +214,16 @@ body {
         align-items: center;
 
         overflow: auto;
+        scrollbar-width: thin;
     }
     .form {
         display: flex;
         flex-direction: column;
         align-items: center;
         gap: 16px;
+    }
+    .form .btn {
+        margin-top: 16px;
     }
     .controls,
     .sort-controls,
@@ -229,12 +234,17 @@ body {
         width: 280px;
         background-color: var(--light-blue);
     }
+    .error {
+        bottom: 54px;
+        transform: none;
+    }
 }
 
 /* Tablet Style */
 @media only screen and (min-width: 768px) {
     .container {
         max-width: 650px;
+        max-height: 90vh;
         padding: 40px;
         flex-wrap: wrap;
 
@@ -243,6 +253,9 @@ body {
         background-color: var(--light-blue);
 
         box-shadow: 28px 28px 56px #cdaf95, -28px -28px 56px #fef7ef;
+
+        overflow: auto;
+        scrollbar-width: thin;
     }
     .form {
         display: grid;
