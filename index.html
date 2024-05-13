@@ -43,10 +43,11 @@
             </form>
             <!-- Output -->
             <div class="output">
-                <label class="input-label" for="pairOutput"
-                    >Name/Value Pair List
-                    <textarea class="input textarea" name="pairOutput" id="pairOutput" placeholder="The list is empty" data-js-output rows="10" disabled></textarea>
-                </label>
+                <div class="input-label">
+                    Name/Value Pair List
+                    <div class="input outputarea" data-js-output></div>
+                </div>
+
                 <a class="icon-link" href="" data-js-test>
                     <svg class="icon" width="28" height="28">
                         <use href="./img/sprite.svg#icon-copy"></use>
@@ -60,7 +61,10 @@
                     <button class="btn" type="button" data-js-btn="nameSort">Sort by Name</button>
                     <button class="btn" type="button" data-js-btn="valueSort">Sort by Value</button>
                 </div>
-                <button class="btn" type="button" data-js-btn="delete">Delete</button>
+                <div class="del-container">
+                    <button class="btn" type="button" data-js-btn="delete">Delete</button>
+                    <p class="message error" data-js-del-error>Select pair.</p>
+                </div>
 
                 <div class="checkbox-container">
                     <input class="checkbox-input" name="showXML" id="xmlCheckbox" type="checkbox" data-js-checkbox="xml" />

@@ -12,6 +12,7 @@ export const copyLink = document.querySelector('[data-js-test]');
 // Message elements
 export const errorElem = formElem.querySelector('[data-js-error]');
 export const infoElem = section.querySelector('[data-js-info]');
+export const delErrorElem = section.querySelector('[data-js-del-error]');
 
 // Checkbox
 export const checkboxElem = section.querySelector('[data-js-checkbox]');

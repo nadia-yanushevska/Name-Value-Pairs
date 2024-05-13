@@ -1,11 +1,12 @@
-import { deleteBtn, formElem, sortByNameBtn, sortByValueBtn, sortTypes, checkboxElem, outputElem, copyLink } from './refs.js';
+import { deleteBtn, formElem, sortByNameBtn, sortByValueBtn, sortTypes, checkboxElem, outputElem, copyLink, delErrorElem } from './refs.js';
 import { validatePair } from './helpers/validator.js';
 import { hideDarkBtn, hideErrorMessage, hideMessage, showDarkBtn, showErrorMessage, showMessage } from './helpers/classToggles.js';
-import { getSortedPairs, showPairs } from './helpers/pairsHelper.js';
+import { getSelectedId, getSortedPairs, showPairs } from './helpers/pairsHelper.js';
 import { load, save } from './helpers/ls.js';
+import { showTempMessage } from './helpers/messageHelper.js';
 
 const PAIRS_KEY = 'pairsData';
-const pairs = load(PAIRS_KEY) || [];
+let pairs = load(PAIRS_KEY) || [];
 
 let xmlType = checkboxElem.checked;
 if (xmlType) showDarkBtn();
@@ -45,18 +46,24 @@ checkboxElem.addEventListener('change', e => {
 copyLink.addEventListener('click', e => {
     e.preventDefault();
 
-    navigator.clipboard.writeText(outputElem.value).then(() => {
-        showMessage();
-        setTimeout(() => {
-            hideMessage();
-        }, 1500);
+    navigator.clipboard.writeText(outputElem.textContent).then(() => {
+        showTempMessage();
     });
 });
 
-deleteBtn.addEventListener('click', () => {
-    pairs.length = 0;
-    save(PAIRS_KEY, []);
-    showPairs(pairs, xmlType);
+deleteBtn.addEventListener('click', e => {
+    if (xmlType) {
+        showTempMessage(delErrorElem);
+        return;
+    }
+    const id = getSelectedId();
+    if (id === -1) {
+        showTempMessage(delErrorElem);
+    } else {
+        pairs = pairs.filter((_, idx) => idx !== id);
+        save(PAIRS_KEY, pairs);
+        showPairs(pairs);
+    }
 });
 
 sortByNameBtn.addEventListener('click', sortHandle);
