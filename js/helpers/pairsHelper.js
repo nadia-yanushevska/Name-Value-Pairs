@@ -11,17 +11,15 @@ export function showPairs(pairArray, xmlType = false) {
 }
 
 function formatPairs(pairArray) {
-    return pairArray.map((pair, idx) => pairWrapper(pair, idx, formatPair)).join('\n');
+    return pairArray.map(pair => pairWrapper(pair, formatPair)).join('\n');
 }
 
 function formatPair(pairObject) {
     return `${pairObject.name} = ${pairObject.value}`;
 }
 
-export function pairWrapper(pairObject, id, pairFormatter) {
-    return `<input class="radio-input" type="radio" id="${id}" name="selectPair" value="${pairObject.name}-${pairObject.value}"><label class="radio-label" for="${id}">${pairFormatter(
-        pairObject
-    )}</label>`;
+export function pairWrapper({ name, value, id }, pairFormatter) {
+    return `<input class="radio-input" type="radio" id="${id}" name="selectPair" value="${name}-${value}"><label class="radio-label" for="${id}">${pairFormatter({ name, value })}</label>`;
 }
 
 export function getSortedPairs(pairArray, key) {
@@ -29,5 +27,5 @@ export function getSortedPairs(pairArray, key) {
 }
 
 export function getSelectedId() {
-    return [...outputElem.childNodes].filter(child => child.nodeName === INPUT_NODE_NAME).findIndex(elem => elem.checked);
+    return Number([...outputElem.childNodes].filter(child => child.nodeName === INPUT_NODE_NAME).find(elem => elem.checked)?.id);
 }

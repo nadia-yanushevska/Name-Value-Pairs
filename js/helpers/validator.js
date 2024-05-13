@@ -9,7 +9,7 @@ export function validatePair(pair) {
     const name = words[0].trim();
     const value = words[1].trim();
 
-    return isAlphaNumeric(name) && isAlphaNumeric(value) ? { name, value } : false;
+    return isAlphaNumeric(name) && isAlphaNumeric(value) ? { name, value, id: Date.now() } : false;
 }
 
 function isAlphaNumeric(str) {

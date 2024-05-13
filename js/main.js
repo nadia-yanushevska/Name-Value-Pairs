@@ -7,6 +7,7 @@ import { showTempMessage } from './helpers/messageHelper.js';
 
 const PAIRS_KEY = 'pairsData';
 let pairs = load(PAIRS_KEY) || [];
+// let currentId = pairs[pairs.length - 1].id;
 
 let xmlType = checkboxElem.checked;
 if (xmlType) showDarkBtn();
@@ -56,11 +57,11 @@ deleteBtn.addEventListener('click', e => {
         showTempMessage(delErrorElem);
         return;
     }
-    const id = getSelectedId();
-    if (id === -1) {
+    const selectedId = getSelectedId();
+    if (isNaN(selectedId)) {
         showTempMessage(delErrorElem);
     } else {
-        pairs = pairs.filter((_, idx) => idx !== id);
+        pairs = pairs.filter(({ id }) => id !== selectedId);
         save(PAIRS_KEY, pairs);
         showPairs(pairs);
     }
